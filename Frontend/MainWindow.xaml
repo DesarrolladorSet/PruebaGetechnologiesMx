@@ -1,0 +1,122 @@
+﻿<Window x:Class="Frontend.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Frontend.Helper"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        MinWidth="300"
+        MaxWidth="650"
+        MaxHeight="600"
+        MinHeight="600"
+        >
+
+    <Window.Resources>
+        <local:IsLessThanConverter x:Key="Converter"/>
+    </Window.Resources>
+
+    <Grid>
+        <Border Background="White" BorderBrush="WhiteSmoke" BorderThickness="5" CornerRadius="8,8,0,8">
+            <Grid Margin="0,10,0,0" Visibility="Hidden">
+                <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,37,10,244"/>
+                
+
+            </Grid>
+            
+        </Border>
+        <Grid Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Width="200" Height="200">
+                <Image.Source>
+                    <BitmapImage DecodePixelWidth="200"  
+                    UriSource="./assets/logo.png" />
+                </Image.Source>
+            </Image>
+            <WrapPanel x:Name="wpp" Grid.Row="1" HorizontalAlignment="Stretch" Orientation="Horizontal">
+                <Rectangle Margin="3" Fill="CornflowerBlue" Width="294" Height="200" ></Rectangle>
+                <Grid HorizontalAlignment="Stretch" Width="{Binding Path=ActualWidth, ElementName=wpp,Converter={StaticResource Converter}}"></Grid>
+                
+                    <!--<DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,37,10,244"/>-->
+                <!--<StackPanel >
+                        <WrapPanel Height="27" >
+                            <Label Content="Agregar Persona" Width="292"/>
+                        </WrapPanel>
+                        <WrapPanel Height="27" >
+                            <Label Content="Nombre" Width="110" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBox TextWrapping="Wrap" Text="" Width="177" Name="Nombre"/>
+                        </WrapPanel>
+                        <WrapPanel Height="27" >
+                            <Label Content="Apellido Paterno" Width="110" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBox TextWrapping="Wrap" Text="" Width="177" Name="ApellidoPaterno"/>
+                        </WrapPanel>
+                        <WrapPanel Height="27" >
+                            <Label Content="Apellido Materno" Width="110" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBox TextWrapping="Wrap" Text="" Width="177" Name="ApellidoMaterno"/>
+                        </WrapPanel>
+                        <WrapPanel Height="27" >
+                            <Label Content="Identificacion" Width="110" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBox TextWrapping="Wrap" Text="" Width="177" Name="Identificacion"/>
+                        </WrapPanel>
+                        <WrapPanel Height="17" Width="298">
+                        </WrapPanel>
+                        <Button Content="Guardar" Height="30" Width="140" Click="Guardar_Click"/>
+                    </StackPanel>-->
+             
+
+            </WrapPanel>
+        </Grid>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Rectangle Grid.Row="0" Height="75" HorizontalAlignment="Stretch"/>
+            <WrapPanel x:Name="wp" Grid.Row="1" HorizontalAlignment="Stretch" Orientation="Horizontal">
+                <ContentControl Width="300">
+                    <Image x:Name="logo" Width="150" Source="assets/logo.png">
+                    </Image>
+                </ContentControl>
+                <Grid HorizontalAlignment="Stretch" Width="{Binding Path=ActualWidth, ElementName=wp,Converter={StaticResource Converter}}"></Grid>
+                <Grid Width="200" Margin="50,20,20,50">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Content="Agregar Persona" Width="200" HorizontalContentAlignment="Center"/>
+
+                    <Label Grid.Row="1" Content="Nombre" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="2" TextWrapping="Wrap" Text="" Width="177" Name="Nombre" BorderBrush="Gray"/>
+
+                    <Label Grid.Row="3" Content="Apellido Paterno" Width="110" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="4" TextWrapping="Wrap" Text="" Width="177" Name="ApellidoPaterno" BorderBrush="Gray"/>
+
+                    <Label Grid.Row="5" Content="Apellido Materno" Width="110" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="6" TextWrapping="Wrap" Text="" Width="177" Name="ApellidoMaterno" BorderBrush="Gray"/>
+
+                    <Label Grid.Row="7" Content="Identificacion" Width="110" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="8" TextWrapping="Wrap" Text="" Width="177" Name="Identificacion" BorderBrush="Gray"/>
+
+                    <Button Grid.Row="9" Content="Guardar" Height="30" Width="140" Click="Guardar_Click"/>
+                </Grid>
+            </WrapPanel>
+        </Grid>
+    </Grid>
+</Window>
