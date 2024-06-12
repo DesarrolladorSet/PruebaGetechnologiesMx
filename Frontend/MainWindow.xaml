@@ -21,60 +21,7 @@
 
     <Grid>
         <Border Background="White" BorderBrush="WhiteSmoke" BorderThickness="5" CornerRadius="8,8,0,8">
-            <Grid Margin="0,10,0,0" Visibility="Hidden">
-                <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,37,10,244"/>
-                
-
-            </Grid>
-            
-        </Border>
-        <Grid Visibility="Hidden">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Image Width="200" Height="200">
-                <Image.Source>
-                    <BitmapImage DecodePixelWidth="200"  
-                    UriSource="./assets/logo.png" />
-                </Image.Source>
-            </Image>
-            <WrapPanel x:Name="wpp" Grid.Row="1" HorizontalAlignment="Stretch" Orientation="Horizontal">
-                <Rectangle Margin="3" Fill="CornflowerBlue" Width="294" Height="200" ></Rectangle>
-                <Grid HorizontalAlignment="Stretch" Width="{Binding Path=ActualWidth, ElementName=wpp,Converter={StaticResource Converter}}"></Grid>
-                
-                    <!--<DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,37,10,244"/>-->
-                <!--<StackPanel >
-                        <WrapPanel Height="27" >
-                            <Label Content="Agregar Persona" Width="292"/>
-                        </WrapPanel>
-                        <WrapPanel Height="27" >
-                            <Label Content="Nombre" Width="110" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBox TextWrapping="Wrap" Text="" Width="177" Name="Nombre"/>
-                        </WrapPanel>
-                        <WrapPanel Height="27" >
-                            <Label Content="Apellido Paterno" Width="110" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBox TextWrapping="Wrap" Text="" Width="177" Name="ApellidoPaterno"/>
-                        </WrapPanel>
-                        <WrapPanel Height="27" >
-                            <Label Content="Apellido Materno" Width="110" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBox TextWrapping="Wrap" Text="" Width="177" Name="ApellidoMaterno"/>
-                        </WrapPanel>
-                        <WrapPanel Height="27" >
-                            <Label Content="Identificacion" Width="110" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBox TextWrapping="Wrap" Text="" Width="177" Name="Identificacion"/>
-                        </WrapPanel>
-                        <WrapPanel Height="17" Width="298">
-                        </WrapPanel>
-                        <Button Content="Guardar" Height="30" Width="140" Click="Guardar_Click"/>
-                    </StackPanel>-->
-             
-
-            </WrapPanel>
-        </Grid>
-
-        <Grid>
+            <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -118,5 +65,6 @@
                 </Grid>
             </WrapPanel>
         </Grid>
+        </Border>
     </Grid>
 </Window>
